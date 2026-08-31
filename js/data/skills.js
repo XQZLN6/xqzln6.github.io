@@ -5,23 +5,40 @@
 const SKILLS = [
   {
     category: "编程语言",
-    items: ["C / C++", "Python（脚本 / 数据处理）", "HTML / CSS / JavaScript"],
-  },
-  {
-    category: "嵌入式",
     items: [
-      "ESP32-S3 / ESP-IDF / Arduino",
-      "ADC / 传感器采集",
-      "I2C / SPI / UART（学习改进中）",
-      "FreeRTOS（学习中）",
+      "C 语言（指针、结构体、中断、寄存器操作）",
+      "Python",
+      "HTML / CSS / JavaScript",
+      "Qt / PyQt 上位机开发",
     ],
   },
   {
-    category: "网络与前端",
-    items: ["WiFi / TCP / UDP", "WebSocket 实时通信", "Canvas 可视化 / FFT 频谱分析"],
+    category: "单片机与嵌入式",
+    items: [
+      "C51 / STM32 / ESP32-S3",
+      "定时器中断、ADC 采样、PWM、编码器",
+      "RMT 红外收发、蓝牙无线控制",
+      "FreeRTOS（任务/调度/消息队列/信号量/任务通知）",
+      "PID 控制、MPU6050 姿态解算",
+    ],
+  },
+  {
+    category: "通信与接口",
+    items: [
+      "I2C / SPI / UART / CAN",
+      "WiFi（热点 / Station）",
+      "TCP / UDP",
+      "WebSocket 实时通信",
+    ],
   },
   {
     category: "工具",
-    items: ["PlatformIO / VS Code", "Git / GitHub", "逻辑分析仪 / 万用表（硬件调试）"],
+    items: [
+      "VS Code（AI 辅助编程）/ Keil / STM32CubeMX / Proteus",
+      "QtDesigner",
+      "嘉立创 EDA（PCB 绘制）",
+      "Git / GitHub",
+      "逻辑分析仪 / 万用表（硬件调试）",
+    ],
   },
 ];

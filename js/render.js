@@ -51,9 +51,29 @@ function renderProjects() {
     const badge = p.badge
       ? '<span class="project-badge">' + escapeHtml(p.badge) + '</span>'
       : '';
-    const media = p.image
-      ? '<img src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.title) + '" onerror="this.style.display=\'none\'">'
-      : '<span>演示图片待添加</span>';
+
+    // 主媒体：优先视频（点击播放、不预加载），否则图片
+    let media;
+    if (p.video) {
+      const poster = p.poster ? ' poster="' + escapeHtml(p.poster) + '"' : '';
+      media =
+        '<video controls preload="none"' + poster + '>' +
+        '<source src="' + escapeHtml(p.video) + '" type="video/mp4">' +
+        '您的浏览器不支持视频播放</video>';
+    } else if (p.image) {
+      media = '<img src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.title) + '" onerror="this.style.display=\'none\'">';
+    } else {
+      media = '<span>演示视频/图片待添加</span>';
+    }
+
+    // 附加展示图（小图缩略）
+    const thumbs = (p.images && p.images.length)
+      ? '<div class="project-thumbs">' +
+        p.images.map(function (img) {
+          return '<img src="' + escapeHtml(img) + '" alt="' + escapeHtml(p.title) + ' 细节图" loading="lazy">';
+        }).join('') +
+        '</div>'
+      : '';
 
     const details = p.details
       .map(function (d) {
@@ -61,15 +81,12 @@ function renderProjects() {
       })
       .join('');
 
-    const demo = p.demoUrl
-      ? '<a href="' + escapeHtml(p.demoUrl) + '" class="link-demo" target="_blank" rel="noopener">' + escapeHtml(p.demoText || '演示') + '</a>'
-      : '';
-
     const tags = p.tags.map(function (t) { return '<span>' + escapeHtml(t) + '</span>'; }).join('');
 
     return (
       '<article class="project-card">' +
       '  <div class="project-media">' + media + badge + '</div>' +
+      '  ' + thumbs +
       '  <div class="project-body">' +
       '    <h3>' + escapeHtml(p.title) + '</h3>' +
       '    <p class="project-intro">' + escapeHtml(p.intro) + '</p>' +
@@ -80,7 +97,6 @@ function renderProjects() {
       '    </details>' +
       '    <div class="project-links">' +
       '      <a href="' + escapeHtml(p.repoUrl) + '" target="_blank" rel="noopener">' + escapeHtml(p.repoText || '源码 ↗') + '</a>' +
-      demo +
       '    </div>' +
       '  </div>' +
       '</article>'
