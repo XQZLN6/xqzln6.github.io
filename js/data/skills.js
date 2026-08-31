@@ -8,14 +8,13 @@ const SKILLS = [
     items: [
       "C 语言（指针、结构体、中断、寄存器操作）",
       "Python",
-      "HTML / CSS / JavaScript",
-      "Qt / PyQt 上位机开发",
+      "PyQt 上位机开发",
     ],
   },
   {
     category: "单片机与嵌入式",
     items: [
-      "C51 / STM32 / ESP32-S3",
+      "C51 / STM32 / ESP32",
       "定时器中断、ADC 采样、PWM、编码器",
       "RMT 红外收发、蓝牙无线控制",
       "FreeRTOS（任务/调度/消息队列/信号量/任务通知）",
@@ -28,7 +27,6 @@ const SKILLS = [
       "I2C / SPI / UART / CAN",
       "WiFi（热点 / Station）",
       "TCP / UDP",
-      "WebSocket 实时通信",
     ],
   },
   {
