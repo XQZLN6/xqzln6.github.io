@@ -210,11 +210,12 @@ a:hover { text-decoration: underline; }
   background: #000; border: none; display: block;
 }
 .project-thumbs {
-  display: flex; gap: 10px; padding: 0 22px; margin-top: -6px;
+  display: flex; flex-direction: column; gap: 10px; padding: 0 22px; margin-top: 12px;
 }
 .project-thumbs img {
-  width: 80px; height: 56px; object-fit: cover;
-  border-radius: 6px; border: 1px solid var(--border);
+  width: 100%; height: auto; object-fit: contain;
+  border-radius: 8px; border: 1px solid var(--border);
+  background: var(--bg-alt);
   transition: transform .2s;
 }
-.project-thumbs img:hover { transform: scale(1.05); }
+.project-thumbs img:hover { transform: scale(1.02); }
